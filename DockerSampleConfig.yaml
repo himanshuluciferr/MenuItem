@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: menuitemlistingdeployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: MENUITEMLISTING
+  template:
+    metadata:
+      labels:
+        app: MENUITEMLISTING
+    spec:
+      containers:
+      - name: menuitemlisting
+        image: registrynaam.azurecr.io/conrepos:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: menuitemconfigsn
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dockersampleconfig
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: MENUITEMLISTING
