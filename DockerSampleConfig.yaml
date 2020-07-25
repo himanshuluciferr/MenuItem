@@ -14,17 +14,17 @@ spec:
     spec:
       containers:
       - name: menuitemlisting
-        image: registrynaam.azurecr.io/conrepos:latest
+        image: truyum1.azurecr.io/conrepos:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
-      - name: menuitemconfigsn
+      - name: wallpapersn
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: dockersampleconfig
+  name: menuitemlisting
 spec:
   type: LoadBalancer
   ports:
