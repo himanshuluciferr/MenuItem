@@ -6,15 +6,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: MENUITEMLISTING
+      app: MenuItemListing
   template:
     metadata:
       labels:
-        app: MENUITEMLISTING
+        app: MenuItemListing
     spec:
       containers:
       - name: menuitemlisting
-        image: truyum1.azurecr.io/conrepos:latest
+        image: truyum1.azurecr.io/value:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
@@ -30,4 +30,4 @@ spec:
   ports:
   - port: 80
   selector:
-    app: MENUITEMLISTING
+    app: MenuItemListing
